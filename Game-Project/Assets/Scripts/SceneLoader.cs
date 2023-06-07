@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class buttons : MonoBehaviour
+public class SceneLoader : MonoBehaviour
 {
     public void StartGame()
     {
@@ -13,5 +13,6 @@ public class buttons : MonoBehaviour
     public void QuitGame()
     {
         Application.Quit();
+        Debug.Log("Quit!");
     }
 }
