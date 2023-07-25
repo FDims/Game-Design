@@ -18,8 +18,7 @@ public class SceneLoader : MonoBehaviour
 
     public void QuitGame()
     {
-        //Application.Quit();
-        EditorApplication.ExitPlaymode();
+        Application.Quit();
         //Debug.Log("Quit!");
     }
 }

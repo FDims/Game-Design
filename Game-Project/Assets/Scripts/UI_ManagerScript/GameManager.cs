@@ -37,6 +37,6 @@ public class GameManager : MonoBehaviour
 
     public void ExitGame()
     {
-        EditorApplication.isPlaying = false;
+        //EditorApplication.isPlaying = false;
     }
 }

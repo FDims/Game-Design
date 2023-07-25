@@ -1,8 +1,9 @@
-using System.Collections;
-using System.Collections.Generic;
+//using System.Collections;
+//using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using UnityEngine.SceneManagement;
+//using UnityEditor.XR;
 
 public class EnemyCounter : MonoBehaviour
 {
@@ -13,6 +14,7 @@ public class EnemyCounter : MonoBehaviour
     private GameObject LastEnemyArrow;
     private GameObject Gate;
     private float currentSceneNumber;
+    private bool BossLevel;
     void Start()
     {
         // Zählen Sie die anfängliche Anzahl der Gegner in der Szene
@@ -21,6 +23,7 @@ public class EnemyCounter : MonoBehaviour
         LastEnemyArrow = GameObject.FindGameObjectWithTag("LastEnemyArrow");
         LastEnemyArrow.SetActive(false);
         currentSceneNumber = SceneManager.GetActiveScene().buildIndex;
+        BossLevel = (currentSceneNumber == 3 || currentSceneNumber == 5);
     }
 
     public void EnemyKilled()
@@ -43,7 +46,7 @@ public class EnemyCounter : MonoBehaviour
 
     private void Update()
     {
-        if (enemyCount == 1)
+        if (enemyCount == 1 && !BossLevel)
         {
             if (lastEnemy == null) lastEnemy = GameObject.FindGameObjectWithTag("Enemy");
             if (!LastEnemyArrow.activeSelf) LastEnemyArrow.SetActive(true);
